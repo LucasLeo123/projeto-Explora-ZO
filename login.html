@@ -1,56 +1,221 @@
-<!--Parte do Lucas-->
+<!--Parte do vinicius--> 
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="CSS/style.css" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-        <title>ExploraZO - Login</title>
-        <script src="JS/tema.js"></script>
-    </head>
-    <body>
-        <header>
-            <img src="imagens/explorazo.png" alt="logo do ExploraZo." width="120px">
-            <h1>Explora<span>ZO</span></h1>
-            <a href="login.html" id="login" class="ativo"><i class="fa-regular fa-user"></i> Login</a>
-        </header>
-        <nav>
-            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="orçamento.html"><i class="fa-regular fa-calendar"></i> Orçamento</a>
-            <a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a>
-        </nav>
-        <main id="loginmain">
-            <img src="imagens/montanha-icon.png" width="130px" height="130px" alt="montanha-icon">
-            <div>
-                <h3 style="color: rgb(24, 120, 50);">Entre na sua conta e aventure-se!</h3><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploraZO - Orçamento</title>
 
-                <form>
-                    <label for="email" style="color: #003A1C; font-weight: bold;">E-mail:</label><br>
-                    <input type="email" id="email"  class="inputcampo" placeholder="Digite seu e-mail" required><br><br>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/trilhas.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="JS/tema.js"></script>
+    <script src="JS/topo.js" defer></script>
+    <script src="JS/autenticacao.js"></script>
 
-                    <label for="senha" style="color: #003A1C; font-weight: bold;">Senha:</label><br>
-                    <input type="password" id="senha" class="inputcampo" placeholder="Digite sua senha" required minlength="8" maxlength="8"><br><br>
+    <script>
+     if (!window.ExploraZOAuth.estaLogado()) {
+        window.ExploraZOAuth.definirDestino("orçamento.html");
+        window.location.href = "login.html";
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="imagens/explorazo.png" alt="Logo ExploraZO" width="120">
+        <h1>Explora<span>ZO</span></h1>
+        <a href="login.html" id="login"><i class="fa-regular fa-user"></i> Login</a>
+    </header>
 
-                    <button type="submit">Entrar</button><br><br>
-                </form><br>
-                <p class="esquecesenha">
-                    <button><i class="fa-solid fa-paper-plane"></i> <a href="recuperar.html" class="botaosemlinha">Esqueci minha senha</a></button><br><br><br>
-                </p>
-                <p class="cadastro">
-                    <span style="color: rgb(24, 120, 50);">Ainda não tem uma conta?</span><br><br>
-                    <button><a href="criarconta.html" class="botaosemlinha">Criar conta</a></button>
-                </p><br>
-                
+    <nav>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="orçamento.html" class="ativo"><i class="fa-regular fa-calendar"></i> Orçamento</a>
+        <a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a>
+    </nav>
+
+    <main>
+        <img src="imagens/montanha-icon.png" width="130" height="130" alt="Montanhas">
+
+        <section id="destinos">
+            <h2>Destinos em Destaque na Zona Oeste</h2>
+            <p class="introducao">Descubra lugares incríveis para sua próxima aventura.</p>
+
+            <div class="lista-destinos">
+                <article class="card-destino" data-destino="pedra-do-telegrafo">
+                    <h3>Pedra do Telégrafo</h3>
+                    <p>Vista icônica e um dos cartões-postais da Zona Oeste.</p>
+                    <div class="dados-trilha">
+                        <div class="linha-dificuldade">
+                            <span class="rotulo-dificuldade">Dificuldade</span>
+                            <span class="indicador-dificuldade nivel-1" aria-label="Fácil"><i></i><i></i><i></i><i></i></span>
+                            <span class="texto-nivel">Fácil</span>
+                        </div>
+                        <div class="linha-percurso">
+                            <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 1h30</span>
+                            <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 3 km</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card-destino" data-destino="mendanha">
+                    <h3>Mendanha</h3>
+                    <p>Trilhas, cachoeiras e muita natureza.</p>
+                    <div class="dados-trilha">
+                        <div class="linha-dificuldade">
+                            <span class="rotulo-dificuldade">Dificuldade</span>
+                            <span class="indicador-dificuldade nivel-2" aria-label="Moderada"><i></i><i></i><i></i><i></i></span>
+                            <span class="texto-nivel">Moderada</span>
+                        </div>
+                        <div class="linha-percurso">
+                            <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 2h</span>
+                            <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 4 km</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card-destino" data-destino="praias-selvagens">
+                    <h3>Praias selvagens</h3>
+                    <p>Praias preservadas, ideais para quem busca tranquilidade.</p>
+                    <div class="dados-trilha">
+                        <div class="linha-dificuldade">
+                            <span class="rotulo-dificuldade">Dificuldade</span>
+                            <span class="indicador-dificuldade nivel-2" aria-label="Moderada"><i></i><i></i><i></i><i></i></span>
+                            <span class="texto-nivel">Moderada</span>
+                        </div>
+                        <div class="linha-percurso">
+                            <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 1h30</span>
+                            <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 3 km</span>
+                        </div>
+                    </div>
+                </article>
             </div>
-        </main>
-        <footer style="color: white;">
-            <p><h2>Nossos Canais de atendimento</h2>              
-            <p id="femail"><i class="fa-regular fa-envelope"></i> contatosexplorazo@gmail.com</p>
-            <p id="ftelefone"><i class="fa-solid fa-phone"></i> (21) 93454-2234</p>
-            <p><i class="fa-solid fa-location-dot"></i> Rua francisco de campos, 354, Campo Grande.</p><hr>
-            <p>&copy; 2026 ExploraZO. Todos os direitos reservados.</p>
-        </footer>
-          <script src="JS/login.js"></script>
-    </body>
+        </section>
+
+        <section id="experiencias">
+            <h2>Planeje sua próxima aventura</h2>
+            <p class="introducao">Escolha os serviços que combinam com seu passeio pela Zona Oeste.</p>
+
+            <div class="lista-servicos">
+                <article class="servico">
+                    <h3>Guias de trilha</h3>
+                    <p>Tenha orientação para explorar trilhas e aproveitar o contato com a natureza.</p>
+                    <span>Para trilhas e caminhadas</span>
+                </article>
+
+                <article class="servico">
+                    <h3>Consultoria de passeios</h3>
+                    <p>Receba ajuda para escolher destinos de acordo com suas preferências.</p>
+                    <span>Ajuda para planejar seu roteiro</span>
+                </article>
+
+                <article class="servico">
+                    <h3>Registro fotográfico</h3>
+                    <p>Conheça a possibilidade de registrar momentos especiais durante o passeio.</p>
+                    <span>Registre suas experiências</span>
+                </article>
+
+                <article class="servico">
+                    <h3>Agências de turismo</h3>
+                    <p>Explore opções de roteiros e passeios organizados por empresas de turismo.</p>
+                    <span>Opções de passeios organizados</span>
+                </article>
+            </div>
+
+            <p class="aviso-servicos">
+                A disponibilidade dos serviços dependerá dos profissionais e parceiros cadastrados na plataforma.
+            </p>
+        </section>
+
+        <section id="orcamento">
+            <h2>Monte seu pacote</h2>
+            <p class="introducao">Conte como você quer viver essa experiência.</p>
+
+            <form id="form-orcamento">
+                <div class="campo">
+                    <label for="nome">Nome:</label>
+                    <input class="inputcampo" type="text" name="nomeusuario" id="nome" placeholder="Digite seu nome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail:</label>
+                    <input class="inputcampo" type="email" name="emailusuario" id="email" placeholder="seuemail@exemplo.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="destino">Destino desejado:</label>
+                    <select id="destino" name="destino" class="inputcampo" required>
+                        <option value="" selected disabled>Escolha um destino</option>
+                        <option>Pedra do Telégrafo</option>
+                        <option>Parque Estadual da Pedra Branca</option>
+                        <option>Cachoeira do Mendanha</option>
+                        <option>Mirante do Caeté</option>
+                        <option>Pedra da Tartaruga</option>
+                        <option>Açude do Camorim</option>
+                        <option>Praia do Perigoso</option>
+                        <option>Pico da Pedra Branca</option>
+                        <option>Pedra do Pontal</option>
+                        <option>Pedra do Quilombo</option>
+                        <option>Pedra do Ponto</option>
+                    </select>
+                </div>
+
+                <!-- CAMPO DE DATA ADICIONADO -->
+                <div class="campo">
+                    <label for="data">Data desejada:</label>
+                    <input class="inputcampo" type="date" id="data" name="data" required>
+                </div>
+
+                <div class="campo">
+                    <label for="quantidade">Quantidade de pessoas:</label>
+                    <select id="quantidade" name="quantidade" class="inputcampo" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="1-2">1 a 2 pessoas</option>
+                        <option value="3-5">3 a 5 pessoas</option>
+                        <option value="6-10">6 a 10 pessoas</option>
+                        <option value="mais-10">Mais de 10 pessoas</option>
+                        <option value="indefinido">Ainda não sei</option>
+                    </select>
+                </div>
+
+                <fieldset>
+                    <legend>Serviços desejados</legend>
+                    <label class="opcao">
+                        <input type="checkbox" name="servicos[]" value="Guia de trilha">
+                        Guia de trilha
+                    </label>
+                    <label class="opcao">
+                        <input type="checkbox" name="servicos[]" value="Registro fotográfico">
+                        Registro fotográfico
+                    </label>
+                    <label class="opcao">
+                        <input type="checkbox" name="servicos[]" value="Consultoria para escolher o passeio">
+                        Consultoria de passeios
+                    </label>
+                    <label class="opcao">
+                        <input type="checkbox" name="servicos[]" value="Agência de turismo">
+                        Agência de turismo
+                    </label>
+                </fieldset>
+
+                <div class="campo">
+                    <label for="mensagem">Observações:</label>
+                    <textarea id="mensagem" name="mensagem" class="inputcampo" rows="4" placeholder="Conte suas preferências para o passeio."></textarea>
+                </div>
+
+                <button type="submit">Solicitar orçamento</button>
+            </form>
+        </section>
+    </main>
+
+    <footer style="color: white;">
+        <h2>Nossos Canais de atendimento</h2>
+        <p id="femail"><i class="fa-regular fa-envelope"></i> contatosexplorazo@gmail.com</p>
+        <p id="ftelefone"><i class="fa-solid fa-phone"></i> (21) 93454-2234</p>
+        <p><i class="fa-solid fa-location-dot"></i> Rua Francisco de Campos, 354, Campo Grande.</p>
+        <hr>
+        <p>&copy; 2026 ExploraZO. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="JS/orcamento.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
 </html>
