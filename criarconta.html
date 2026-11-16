@@ -1,67 +1,169 @@
-<!--Parte do Brian-->
+<!-- Parte do Brian -->
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-        <link rel="stylesheet" href="CSS/style.css" type="text/css">
-        <title>ExploraZO - Criar Conta</title>
-        <script src="JS/tema.js"></script>
-    </head>
-    <body>
-        <header>
-            <img src="imagens/explorazo.png" alt="logo do ExploraZo." width="120px">
-            <h1>Explora<span>ZO</span></h1>
-            <a href="login.html" id="login"><i class="fa-regular fa-user"></i> Login</a>
-        </header>
-        <nav>
-            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="orçamento.html"><i class="fa-regular fa-calendar"></i> Orçamento</a>
-            <a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a>
-        </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>ExploraZO - Criar Conta</title>
+    <script src="JS/tema.js"></script>
+    <script src="JS/topo.js" defer></script>
+</head>
+<body>
+    <header>
+        <img src="imagens/explorazo.png" alt="Logo do ExploraZO" width="120">
+        <h1>Explora<span>ZO</span></h1>
+        <a href="login.html" id="login"><i class="fa-regular fa-user"></i> Login</a>
+    </header>
 
-        <main id="maincriar">
-            <img src="imagens/montanha-icon.png" width="130px" height="130px" alt="montanha-icon">
-            <section id="principalcriar">
-                <h2 style="color: rgb(24, 120, 50);">Crie sua conta para começar a explorar o mundo!</h2><br>
+    <nav>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="orçamento.html"><i class="fa-regular fa-calendar"></i> Orçamento</a>
+        <a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a>
+    </nav>
 
-                <form method="GET" action="#" enctype="multipart/form-data">
-                    <label for="nome" style="color: #003A1C; font-weight: bold;">Nome:</label>
-                    <input type="text" id="nome" class="inputcampo" placeholder="Digite seu nome" required minlength="15" maxlength="60"><br><br>
- 
-                    <label for="email" style="color: #003A1C; font-weight: bold;">E-mail:</label>
-                    <input type="email" id="email" class="inputcampo" placeholder="Digite seu e-mail" required><br><br>
+    <main id="maincriar">
+        <img src="imagens/montanha-icon.png" width="130" height="130" alt="Montanhas">
 
-                    <label for="senha" style="color: #003A1C; font-weight: bold;">Senha:</label>
-                    <input type="password" id="senha" class="inputcampo" placeholder="Digite sua senha" required minlength="8" maxlength="8"><br><br>
+        <section id="principalcriar">
+            <h2>Crie sua conta para começar a explorar o mundo!</h2>
 
-                    <label for="nascimento" style="color: #003A1C; font-weight: bold;">Data de Nascimento:</label>
-                    <input type="date" id="nascimento" class="inputcampo" required><br><br>
-                    
-                    <label for="telefone" style="color: #003A1C; font-weight: bold;">Telefone:</label>
-                    <input type="tel" id="telefone" class="inputcampo" placeholder="Digite seu telefone" required minlength="11" maxlength="11"><br><br>
+            <form id="formCadastro" method="post" action="#">
+                <div class="campo-cadastro">
+                    <label for="nome">Nome completo:</label>
+                    <input type="text" id="nome" name="nome" class="inputcampo"
+                        placeholder="Digite seu nome completo" minlength="15" maxlength="60" required>
+                </div>
 
-                    <label for="genero" style="color: #003A1C; font-weight: bold;">Gênero:</label>
-                    <input type="radio" id="masculino" name="genero" value="masculino" required>
-                    <label for="masculino">Masculino</label>
-                    <input type="radio" id="feminino" name="genero" value="feminino" required>
-                    <label for="feminino">Feminino</label><br><br>
-                    
+                <div class="campo-cadastro">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" class="inputcampo"
+                        placeholder="exemplo@email.com" required>
+                </div>
 
-                    <br><input type="checkbox" id="termos" required>
-                    <label for="termos">Aceito os termos e condições</label><br><br>
-                    <button type="submit">Criar Conta</button><br><br><br>
-                </form>
-            </section>
-        </main>
-        <footer style="color: white;">
-            <p><h2>Nossos Canais de atendimento</h2>              
-            <p id="femail"><i class="fa-regular fa-envelope"></i> contatosexplorazo@gmail.com</p>
-            <p id="ftelefone"><i class="fa-solid fa-phone"></i> (21) 93454-2234</p>
-            <p><i class="fa-solid fa-location-dot"></i> Rua francisco de campos, 354, Campo Grande.</p><hr>
-            <p>&copy; 2026 ExploraZO. Todos os direitos reservados.</p>
-        </footer>
-        <script src="JS/criarconta.js"></script>
-    </body>
+                <div class="campo-cadastro">
+                    <label for="nascimento">Data de nascimento:</label>
+                    <input type="date" id="nascimento" name="nascimento" class="inputcampo" required>
+                </div>
+
+                <fieldset class="campo-cadastro">
+                    <legend>Sexo:</legend>
+                    <label><input type="radio" name="genero" value="Masculino" required> Masculino</label>
+                    <label><input type="radio" name="genero" value="Feminino"> Feminino</label>
+                    <label><input type="radio" name="genero" value="Prefiro não informar"> Prefiro não informar</label>
+                </fieldset>
+
+                <div class="campo-cadastro">
+                    <label for="nomeMaterno">Nome da mãe:</label>
+                    <input type="text" id="nomeMaterno" name="nomeMaterno" class="inputcampo"
+                        placeholder="Digite o nome completo da sua mãe" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" class="inputcampo"
+                        placeholder="000.000.000-00" maxlength="14" inputmode="numeric" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="telefone">Telefone celular:</label>
+                    <input type="tel" id="telefone" name="telefoneCelular" class="inputcampo"
+                        placeholder="(21) 96683-2038" maxlength="15" inputmode="numeric" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="telefoneFixo">Telefone fixo:</label>
+                    <input type="tel" id="telefoneFixo" name="telefoneFixo" class="inputcampo"
+                        placeholder="(21) 3863-9453" maxlength="14" inputmode="numeric" required>
+                </div>
+
+                <fieldset class="campo-cadastro">
+                    <legend>Endereço completo</legend>
+
+                    <div class="campo-cadastro">
+                        <label for="cep">CEP:</label>
+                        <input type="text" id="cep" name="cep" class="inputcampo"
+                            placeholder="00000-000" maxlength="9" inputmode="numeric" required>
+                    </div>
+
+                    <div class="campo-cadastro">
+                        <label for="rua">Rua ou Avenida:</label>
+                        <input type="text" id="rua" name="rua" class="inputcampo"
+                            placeholder="Digite o nome da rua ou avenida" required>
+                    </div>
+
+                    <div class="campo-cadastro">
+                        <label for="numero">Número:</label>
+                        <input type="text" id="numero" name="numero" class="inputcampo"
+                            placeholder="Digite o número" required>
+                    </div>
+
+                    <div class="campo-cadastro">
+                        <label for="complemento">Complemento (opcional):</label>
+                        <input type="text" id="complemento" name="complemento" class="inputcampo"
+                            placeholder="Apartamento, bloco, casa...">
+                    </div>
+
+                    <div class="campo-cadastro">
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" id="bairro" name="bairro" class="inputcampo"
+                            placeholder="Digite seu bairro" required>
+                    </div>
+
+                    <div class="campo-cadastro">
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" name="cidade" class="inputcampo"
+                            placeholder="Digite sua cidade" required>
+                    </div>
+
+                    <div class="campo-cadastro">
+                        <label for="estado">Estado:</label>
+                        <input type="text" id="estado" name="estado" class="inputcampo"
+                            placeholder="Ex.: RJ" maxlength="2" required>
+                    </div>
+                </fieldset>
+
+                <div class="campo-cadastro">
+                    <label for="loginUsuario">Login (6 letras):</label>
+                    <input type="text" id="loginUsuario" name="login" class="inputcampo"
+                        placeholder="Crie um login com 6 letras" maxlength="6" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="senha">Senha (mínimo de 8 letras):</label>
+                    <input type="password" id="senha" name="senha" class="inputcampo"
+                        placeholder="Crie uma senha com no mínimo 8 letras" minlength="8" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="confirmarSenha">Confirmar senha:</label>
+                    <input type="password" id="confirmarSenha" name="confirmarSenha" class="inputcampo"
+                        placeholder="Digite novamente sua senha" minlength="8" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="termos">
+                        <input type="checkbox" id="termos" name="termos" required>
+                        Aceito os termos e condições
+                    </label>
+                </div>
+
+                <button type="submit">Criar Conta</button>
+            </form>
+        </section>
+    </main>
+
+    <footer style="color: white;">
+        <h2>Nossos Canais de atendimento</h2>
+        <p id="femail"><i class="fa-regular fa-envelope"></i> contatosexplorazo@gmail.com</p>
+        <p id="ftelefone"><i class="fa-solid fa-phone"></i> (21) 93454-2234</p>
+        <p><i class="fa-solid fa-location-dot"></i> Rua Francisco de Campos, 354, Campo Grande.</p>
+        <hr>
+        <p>&copy; 2026 ExploraZO. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="JS/autenticacao.js"></script>
+    <script src="JS/criarconta.js"></script>
+</body>
 </html>
