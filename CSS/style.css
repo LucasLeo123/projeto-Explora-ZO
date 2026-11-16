@@ -6,12 +6,18 @@
 body {
     font-family: 'Segoe UI', sans-serif;
     background-color: #f0f0f0;
-    margin: 0%;
+    margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background-image: url("../imagens/plano-de-fundo.png");
-    background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+img {
+    max-width: 100%;
 }
 main {
     background-color: white;
@@ -20,24 +26,26 @@ main {
     text-align: center;
     margin: 20px;
     border-radius: 16px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-image: url("../imagens/fundocima.png"), url("../imagens/fundobaixo.png");
-    background-position: top left, bottom right; background-size: 800px auto, 800px auto; background-repeat: no-repeat;
-    
+    background-position: top left, bottom right;
+    background-size: 800px auto, 800px auto;
+    background-repeat: no-repeat;
 }
 #esqueceumain, #loginmain, #maincriar {
     padding: 20px;
     width: 70%;
-    margin: 0 auto; margin-bottom: 70px; margin-top: 70px;
+    margin: 70px auto;
 }
-#sobremain, #indexmain {
+#sobremain {
     width: 90%;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto;
 }
+
+/* Barra de navegacao */
 header {
-    display: inline-block;
+    position: relative;
+    display: block;
     background-color: #073127;
     color: white;
     font-size: 22px;
@@ -50,11 +58,9 @@ header img {
     position: absolute;
 }
 header h1 {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 26px;
-    padding-bottom: 36px;
-    margin-left: 90px; margin-top: 12px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    margin: 12px 0 0 90px;
+    padding: 26px 26px 36px;
     font-size: 38px;
     font-weight: 700;
 }
@@ -66,9 +72,6 @@ a#login {
     position: absolute;
     right: 20px;
     top: 41px;
-    color: white;
-    text-decoration: none;
-    gap: 7px;
     color: white;
     text-decoration: none;
     padding-bottom: 15px;
@@ -88,58 +91,121 @@ nav a {
     color: white;
     padding-bottom: 15px;
     margin-left: 20px;
-    color: white;
     font-weight: 600;
     text-decoration: none;
+    transition: color 0.2s;
 }
 nav a:hover, #login:hover {
     color: #a5f3b8;
 }
+
+/* Responsividade com celular e telas menores*/
+@media (max-width: 1000px) {
+    header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+        padding: 10px 70px 10px 15px;
+    }
+ 
+    header img {
+        position: static;
+        width: 64px;
+        height: auto;
+    }
+ 
+    header h1 {
+        margin: 0 auto 0 0;
+        padding: 0;
+        font-size: 28px;
+    }
+ 
+    a#login {
+        position: static;
+        padding: 0;
+        font-size: 18px;
+    }
+
+    #botao-tema:not(.flutuante) {
+        top: 14px;
+        right: 15px;
+    }
+ 
+    nav {
+        position: static;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px 4px;
+        margin: 0;
+        padding: 4px 12px 14px;
+        background-color: #073127;
+        font-size: 18px;
+        word-spacing: normal;
+    }
+ 
+    nav a {
+        margin-left: 0;
+        padding: 8px 12px 10px;
+    }
+}
+ 
+/* 480px de largura */
+@media (max-width: 480px) {
+    header img {
+        width: 52px;
+    }
+ 
+    header h1 {
+        font-size: 24px;
+    }
+ 
+    a#login {
+        font-size: 16px;
+    }
+ 
+    nav {
+        font-size: 16px;
+    }
+ 
+    nav a {
+        padding: 8px 10px 10px;
+    }
+}
+
 footer {
     text-align: center;
     color: rgb(24, 153, 7);
     padding: 30px;
-    background-color: #073127;;
+    background-color: #073127;
     letter-spacing: 1px;
     width: 100%;
 }
-section#historia {
+section#historia,
+section#proposito,
+section#diferenciais,
+section#contato {
     background-color: #F7F9F5;
-    padding: 100px;
     border-radius: 10px;
     margin: 20px;
     padding: 20px;
-
     font-size: 17px;
 }
-section#historia img {
-    width: 80% auto;
-    height: 80% auto;
-    border-radius: 10px;
-}
-.valoreslado {
-    margin-left: 35px;
-}
-section#proposito, section#diferenciais {
+section#proposito,
+section#diferenciais {
     text-align: left;
-    padding: 100px;
-    border-radius: 10px;
-    margin: 20px;
-    padding: 20px;
-    background-color: #F7F9F5;
-    font-size: 17px;
-}
-section#proposito img, section#diferenciais img {
-    width: 100%;
 }
 section#contato {
     text-align: center;
-    padding: 100px;
+}
+.valoreslado {
+    margin-left: 15px;
+}
+section#proposito img,
+section#diferenciais img,
+section#historia img {
+    width: 80%;
     border-radius: 10px;
-    margin: 20px;
-    padding: 20px;
-    background-color: #F7F9F5;
-    font-size: 17px;
 }
 section#destinos {
     text-align: center;
@@ -150,7 +216,6 @@ section#destinos {
     border-radius: 10px;
     margin: 10px;
     font-size: 17px;
-
 }
 .destinos {
     display: inline-block;
@@ -171,8 +236,17 @@ section#destinos {
     vertical-align: top;
     width: 48%;
 }
-input#nome, input#email, input#senha, input#telefone, input#nascimento, input#data, textarea#mensagem, select#destino {
+input#nome,
+input#email,
+input#senha,
+input#telefone,
+input#nascimento,
+input#data,
+textarea#mensagem,
+select#destino {
     width: 20%;
+    min-width: 220px;
+    max-width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -186,13 +260,14 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-.botaosemlinha {
-    text-decoration: none;
-    color: white;
+    transition: background-color 0.2s;
 }
 button:hover {
     background-color: #37db60;
+    color: white;
+}
+.botaosemlinha {
+    text-decoration: none;
     color: white;
 }
 footer hr {
@@ -200,20 +275,22 @@ footer hr {
     border: none;
     border-bottom: 1px solid #ccc;
 }
-#femail {
-    display: inline-block;
-    margin: 10px;
-    padding-inline-end: 22px;
-    border-right: rgb(114, 114, 114) 1px solid;
-}
+#femail,
 #ftelefone {
     display: inline-block;
     margin: 10px;
+    padding-inline-end: 22px;
 }
+#femail {
+    border-right: 1px solid rgb(114, 114, 114);
+}
+ 
+/* Ícones */
 i {
     margin-right: 1px;
 }
-nav a i, .login-btn i {
+nav a i,
+.login-btn i {
     font-size: 18px;
 }
 button i {
@@ -224,7 +301,10 @@ footer i {
     margin-right: 10px;
     font-size: 18px;
 }
-.ativo, #login.ativo {
+
+/* Página selecionada */
+.ativo,
+#login.ativo {
     color: #8fe2a1;
 }
 a.ativo::after {
@@ -237,13 +317,45 @@ a.ativo::after {
     background-color: #8fe2a1;
     border-radius: 3px;
 }
-#femail, #ftelefone {
-    display: inline-block;
-    margin: 10px;
-    padding-inline-end: 22px;
-}
 .inputcampo {
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão pra subir para o inicio da página */
+#botao-topo {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    background-color: #187832;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, visibility 0.25s, background-color 0.2s;
+}
+#botao-topo.visivel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+ 
+#botao-topo:hover {
+    background-color: #115f27;
+}
+ 
+#botao-topo i {
+    margin: 0;
+    font-size: 18px;
 }
 /*Essa parte do CSS foi feito pelo Brian*/
 
@@ -1008,6 +1120,7 @@ body:has(#experiencias) #orcamento {
     gap: 20px;
 }
 
+
 /* CARDS DAS VANTAGENS */
 
 #indexmain .card-vantagem {
@@ -1018,36 +1131,36 @@ body:has(#experiencias) #orcamento {
     min-width: 0;
     padding: 22px;
 
-    background-color: #293d35;
-    border: 1px solid #385247;
+    background-color: #70db91;
+    border: 1px solid #70db91;
     border-radius: 18px;
-
-    transition: 0.2s;
 }
 
-#indexmain .card-vantagem:hover {
-    transform: translateY(-5px);
-    border-color: #70db91;
-    background-color: #30493e;
-}
+/* ÍCONES */
 
 #indexmain .card-vantagem i {
     font-size: 27px;
-    color: #70db91;
+    color: #293d35;
     margin-bottom: 5px;
 }
 
+/* TÍTULOS */
+
 #indexmain .card-vantagem h3 {
     font-size: 17px;
+    color: #293d35;
     margin: 0;
 }
+
+/* DESCRIÇÕES */
 
 #indexmain .card-vantagem p {
     font-size: 14px;
     line-height: 1.6;
-    color: #dddddd;
+    color: #293d35;
     margin: 0;
 }
+
 
 /* OUTROS DESTINOS */
 
@@ -1295,6 +1408,10 @@ html:not(.modo-escuro) #indexmain .duvida {
     border-color: #dce7dc;
 }
 
+html:not(.modo-escuro) #indexmain #porque-contratar .card-vantagem {
+    border-color: rgb(24, 120, 50);
+}
+
 html:not(.modo-escuro) #indexmain .card-destino:hover,
 html:not(.modo-escuro) #indexmain .card-outro:hover,
 html:not(.modo-escuro) #indexmain .card-vantagem:hover,
@@ -1446,3 +1563,653 @@ html.modo-escuro .botao-link:hover {
     background-color: #1f3a2a;
 }
 /*Essa parte do CSS foi feito pelo Vinicius - modo claro e escuro*/
+
+
+/* MARCADOR PERSONALIZADO */
+
+#indexmain .marcador-personalizado {
+    background: transparent;
+    border: none;
+    text-align: center;
+}
+
+#indexmain .marcador-personalizado i {
+    font-size: 36px;
+    color: #70db91;
+    -webkit-text-stroke: 1px #293d35;
+    filter: drop-shadow(0 2px 3px #202e29);
+}
+#indexmain .legenda-marcador {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: #3c3c3c;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 0;
+}
+
+#indexmain .legenda-marcador::before {
+    display: none;
+}
+
+/* JANELA DE DESTINOS - HOME */
+#indexmain .card-destino[data-destino],
+#indexmain .card-outro[data-destino] {
+    cursor: pointer;
+}
+
+#indexmain .card-destino[data-destino]:focus-visible,
+#indexmain .card-outro[data-destino]:focus-visible {
+    outline: 2px solid #70db91;
+    outline-offset: 3px;
+}
+
+body.janela-destino-aberta {
+    overflow: hidden;
+}
+
+#janela-destino.janela-destino-fundo {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(0, 0, 0, 0.72);
+}
+
+#janela-destino[hidden] {
+    display: none !important;
+}
+
+#janela-destino .janela-destino-caixa {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    max-height: 92vh;
+    padding: 28px;
+    overflow-y: auto;
+    background: #202e29;
+    color: #fff;
+    border: 1px solid #527463;
+    border-radius: 18px;
+    box-shadow: 0 14px 45px rgba(0, 0, 0, 0.38);
+}
+
+#janela-destino #janela-destino-titulo {
+    margin: 0 35px 20px 0;
+    font-size: 25px;
+    color: #70db91;
+}
+
+#janela-destino #janela-destino-fechar {
+    position: absolute;
+    top: 12px;
+    right: 17px;
+    padding: 0 6px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 33px;
+    cursor: pointer;
+}
+
+#janela-destino .janela-destino-carrossel {
+    position: relative;
+    overflow: hidden;
+    height: 260px;
+    border-radius: 14px;
+    background: #34483e;
+}
+
+#janela-destino .janela-destino-faixa {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+#janela-destino .janela-destino-slide {
+    display: flex;
+    flex: 0 0 100%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: #34483e;
+    color: #b4c9bd;
+    font-size: 15px;
+}
+
+#janela-destino .janela-destino-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#janela-destino .janela-destino-seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+#janela-destino .janela-destino-seta.anterior { left: 12px; }
+#janela-destino .janela-destino-seta.proximo { right: 12px; }
+
+#janela-destino .janela-destino-contador {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 10px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    color: #fff;
+}
+
+#janela-destino .janela-destino-informacoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 18px 0;
+}
+
+#janela-destino .janela-destino-informacoes > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 14px;
+    border: 1px solid #527463;
+    border-radius: 10px;
+    background: #293d35;
+}
+
+#janela-destino .janela-destino-informacoes strong {
+    font-size: 14px;
+    color: #70db91;
+}
+
+#janela-destino .janela-destino-informacoes span {
+    font-size: 15px;
+}
+
+#janela-destino #mapa-janela-destino {
+    width: 100%;
+    height: 270px;
+    border: 1px solid #527463;
+    border-radius: 12px;
+    background: #34483e;
+}
+
+@media (max-width: 600px) {
+    #janela-destino .janela-destino-caixa { padding: 20px; }
+    #janela-destino .janela-destino-carrossel { height: 190px; }
+    #janela-destino .janela-destino-informacoes { grid-template-columns: 1fr; }
+    #janela-destino #mapa-janela-destino { height: 220px; }
+}
+
+
+/* JANELA DE DESTINOS - BOTAO PARA ORCAMENTO */
+#janela-destino .janela-destino-acoes {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 18px;
+}
+
+#janela-destino .janela-destino-botao-orcamento {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 11px 22px;
+    border-radius: 9px;
+    background: #70db91;
+    color: #112a1d;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+#janela-destino .janela-destino-botao-orcamento:hover {
+    background: #9cf0b6;
+}
+
+#janela-destino .janela-destino-botao-orcamento:focus-visible {
+    outline: 3px solid #70db91;
+    outline-offset: 3px;
+}
+
+/* JANELA DE DESTINOS - MODO CLARO */
+html:not(.modo-escuro) #janela-destino.janela-destino-fundo {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+html:not(.modo-escuro) #janela-destino .janela-destino-caixa {
+    background: #fff;
+    color: #1f2d27;
+    border-color: #dce7dc;
+}
+
+html:not(.modo-escuro) #janela-destino #janela-destino-titulo {
+    color: #187832;
+}
+
+html:not(.modo-escuro) #janela-destino #janela-destino-fechar {
+    color: #35493c;
+}
+
+html:not(.modo-escuro) #janela-destino .janela-destino-carrossel,
+html:not(.modo-escuro) #janela-destino .janela-destino-slide {
+    background: #eef2ee;
+}
+
+html:not(.modo-escuro) #janela-destino .janela-destino-slide {
+    color: #65756b;
+}
+
+html:not(.modo-escuro) #janela-destino .janela-destino-informacoes > div {
+    background: #f7f9f5;
+    border-color: #dce7dc;
+}
+
+html:not(.modo-escuro) #janela-destino .janela-destino-informacoes strong {
+    color: #187832;
+}
+
+html:not(.modo-escuro) #janela-destino #mapa-janela-destino {
+    background: #eef2ee;
+    border-color: #cfd8cf;
+}
+
+html:not(.modo-escuro) #janela-destino .janela-destino-botao-orcamento {
+    background: #187832;
+    color: #fff;
+}
+
+html:not(.modo-escuro) #janela-destino .janela-destino-botao-orcamento:hover {
+    background: #115f27;
+}
+
+/* =====================================
+   PADRONIZAÇÃO DA PÁGINA CRIAR CONTA
+   ===================================== */
+
+#maincriar {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 30px;
+}
+
+#principalcriar {
+    width: 100%;
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #f7f9f5;
+    border-radius: 12px;
+    text-align: left;
+}
+
+#principalcriar h2 {
+    margin: 0 0 25px;
+    color: rgb(24, 120, 50);
+    text-align: center;
+    font-size: 26px;
+}
+
+/* Formulário */
+
+#formCadastro {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Campos */
+
+#formCadastro .campo-cadastro {
+    margin-bottom: 18px;
+}
+
+#formCadastro .campo-cadastro > label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: #26382d;
+}
+
+#formCadastro input:not([type="radio"]):not([type="checkbox"]) {
+    display: block;
+    width: 100%;
+    min-height: 43px;
+    padding: 11px 12px;
+    border: 1px solid #cfd8cf;
+    border-radius: 7px;
+    background-color: #fff;
+    color: #26382d;
+    font-family: inherit;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+/* Efeito ao clicar nos campos */
+
+#formCadastro input:focus {
+    outline: 2px solid #9cc8a2;
+    border-color: rgb(24, 120, 50);
+}
+
+/* Caixas de seleção */
+
+#formCadastro fieldset {
+    margin: 20px 0;
+    padding: 18px;
+    border: 1px solid #cfd8cf;
+    border-radius: 8px;
+}
+
+#formCadastro legend {
+    padding: 0 7px;
+    color: rgb(24, 120, 50);
+    font-weight: bold;
+}
+
+#formCadastro fieldset label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 8px 15px 8px 0;
+    cursor: pointer;
+}
+
+#formCadastro input[type="radio"],
+#formCadastro input[type="checkbox"] {
+    accent-color: rgb(24, 120, 50);
+    cursor: pointer;
+}
+
+/* Botão Criar Conta */
+
+#formCadastro button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    background-color: rgb(24, 120, 50);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#formCadastro button:hover {
+    background-color: rgb(17, 95, 39);
+}
+
+/* Modo escuro */
+
+html.modo-escuro #principalcriar {
+    background-color: #1c2521 !important;
+}
+
+html.modo-escuro #principalcriar h2 {
+    color: #6fd58c !important;
+}
+
+html.modo-escuro #formCadastro .campo-cadastro > label {
+    color: #d5dfd9 !important;
+}
+
+html.modo-escuro #formCadastro fieldset {
+    border-color: #3a4a43 !important;
+}
+
+html.modo-escuro #formCadastro legend {
+    color: #6fd58c !important;
+}
+
+html.modo-escuro #formCadastro input:not([type="radio"]):not([type="checkbox"]) {
+    background-color: #232d29 !important;
+    color: #e6ece8 !important;
+    border-color: #3a4a43 !important;
+}
+
+html.modo-escuro #formCadastro input::placeholder {
+    color: #8a9a92;
+}
+
+/* Responsividade */
+
+@media (max-width: 600px) {
+    #maincriar {
+        width: 100%;
+        margin: 12px auto;
+        padding: 15px;
+    }
+
+    #principalcriar {
+        padding: 20px 14px;
+    }
+
+    #principalcriar h2 {
+        font-size: 21px;
+    }
+
+    #formCadastro fieldset label {
+        display: flex;
+        margin: 12px 0;
+    }
+}
+
+
+/* CARDS DE DESTINOS: dificuldade, tempo e distância (home e orçamento) */
+body:has(#experiencias) #destinos .card-destino {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 18px;
+    background: #f7f9f5;
+    border: 1px solid #dce7dc;
+    border-radius: 18px;
+    color: #1f2d27;
+    transition: 0.2s;
+}
+
+body:has(#experiencias) #destinos .card-destino:hover {
+    transform: translateY(-5px);
+    background: #eef7ef;
+    border-color: #187832;
+}
+
+body:has(#experiencias) #destinos .card-destino:focus-visible {
+    outline: 2px solid #187832;
+    outline-offset: 3px;
+}
+
+body:has(#experiencias) #destinos .card-destino h3 {
+    font-size: 17px;
+    margin: 0;
+    color: #187832;
+}
+
+body:has(#experiencias) #destinos .card-destino p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #555;
+    margin: 0;
+}
+
+#indexmain .card-destino .dados-trilha,
+#indexmain .card-outro .dados-trilha,
+body:has(#experiencias) #destinos .card-destino .dados-trilha {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #527463;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+#indexmain .card-destino .dados-trilha span,
+#indexmain .card-outro .dados-trilha span,
+body:has(#experiencias) #destinos .card-destino .dados-trilha span {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+.dados-trilha .linha-dificuldade,
+.dados-trilha .linha-percurso {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dados-trilha .rotulo-dificuldade {
+    font-weight: 700;
+}
+
+.dados-trilha .texto-nivel {
+    font-weight: 600;
+}
+
+.dados-trilha .linha-percurso {
+    gap: 9px 14px;
+    color: #a7cdb4;
+}
+
+.dados-trilha .linha-percurso i,
+#janela-destino .janela-destino-informacoes i,
+.modal-trilha .duracao-trilha i {
+    color: #70db91;
+    margin-right: 3px;
+}
+
+/* Quatro pontos: aumentam de tamanho e de intensidade conforme o nível. */
+.indicador-dificuldade {
+    --cor-pontos: #65d68b;
+    --tamanho-ponto: 7px;
+    display: inline-flex;
+    gap: 1px;
+    align-items: center;
+    vertical-align: middle;
+    flex: none;
+}
+
+.indicador-dificuldade i {
+    display: inline-flex;
+    width: 12px;
+    height: 14px;
+    align-items: center;
+    justify-content: center;
+}
+
+.indicador-dificuldade i::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 5px;
+    background: #7e9689;
+    border-radius: 50%;
+}
+
+.indicador-dificuldade.nivel-1 { --cor-pontos: #65d68b; --tamanho-ponto: 7px; }
+.indicador-dificuldade.nivel-2 { --cor-pontos: #e4b349; --tamanho-ponto: 9px; }
+.indicador-dificuldade.nivel-3 { --cor-pontos: #f18c46; --tamanho-ponto: 11px; }
+.indicador-dificuldade.nivel-4 { --cor-pontos: #e75a57; --tamanho-ponto: 13px; }
+
+.indicador-dificuldade.nivel-1 i:nth-child(-n+1)::after,
+.indicador-dificuldade.nivel-2 i:nth-child(-n+2)::after,
+.indicador-dificuldade.nivel-3 i:nth-child(-n+3)::after,
+.indicador-dificuldade.nivel-4 i:nth-child(-n+4)::after {
+    width: var(--tamanho-ponto);
+    height: var(--tamanho-ponto);
+    background: var(--cor-pontos);
+}
+
+/* Modal da home: dificuldade visível e informações de duração. */
+#janela-destino #janela-destino-dificuldade {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+#janela-destino #janela-destino-dificuldade .indicador-dificuldade,
+#janela-destino #janela-destino-dificuldade .indicador-dificuldade i {
+    display: inline-flex;
+}
+
+/* Mesmo visual nas duas opções de tema. */
+html:not(.modo-escuro) #indexmain .dados-trilha,
+body:has(#experiencias) #destinos .card-destino .dados-trilha {
+    border-top-color: #dce7dc;
+}
+
+html:not(.modo-escuro) #indexmain .dados-trilha .linha-percurso,
+body:has(#experiencias) #destinos .card-destino .linha-percurso {
+    color: #52685b;
+}
+
+html:not(.modo-escuro) #indexmain .dados-trilha .linha-percurso i,
+body:has(#experiencias) #destinos .card-destino .linha-percurso i,
+html:not(.modo-escuro) #janela-destino .janela-destino-informacoes i {
+    color: #187832;
+}
+
+html.modo-escuro body:has(#experiencias) #destinos .card-destino {
+    background: #293d35;
+    border-color: #385247;
+    color: #e6ece8;
+}
+
+html.modo-escuro body:has(#experiencias) #destinos .card-destino:hover {
+    background: #30493e;
+    border-color: #70db91;
+}
+
+html.modo-escuro body:has(#experiencias) #destinos .card-destino p {
+    color: #dddddd !important;
+}
+
+html.modo-escuro body:has(#experiencias) #destinos .card-destino .linha-percurso,
+html.modo-escuro body:has(#experiencias) #destinos .card-destino .linha-percurso i {
+    color: #a7cdb4;
+}
+
+.modal-trilha .bolinhas-trilha.indicador-dificuldade {
+    letter-spacing: normal;
+}
+
+.modal-trilha .duracao-trilha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+    color: #52685b;
+    font-size: 14px;
+}
