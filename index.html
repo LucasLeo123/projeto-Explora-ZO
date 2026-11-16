@@ -8,6 +8,10 @@
         <title>ExploraZO</title>
         <link rel="stylesheet" href="CSS/style.css" type="text/css">
         <script src="JS/tema.js"></script>
+        <script src="JS/topo.js" defer></script>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     </head>
     <body>
         <header>
@@ -60,30 +64,60 @@
 
                 <div class="lista-destinos">
 
-                    <article class="card-destino">
+                    <article class="card-destino" data-destino="pedra-do-telegrafo">
                         <h3>Pedra do Telégrafo</h3>
                         <p>
                             Vista icônica e um dos cartões-postais
                             da Zona Oeste.
                         </p>
-                        <span>Trilha guiada</span>
+                        <div class="dados-trilha">
+                            <div class="linha-dificuldade">
+                                <span class="rotulo-dificuldade">Dificuldade</span>
+                                <span class="indicador-dificuldade nivel-1" aria-label="Fácil"><i></i><i></i><i></i><i></i></span>
+                                <span class="texto-nivel">Fácil</span>
+                            </div>
+                            <div class="linha-percurso">
+                                <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 1h30</span>
+                                <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 3 km</span>
+                            </div>
+                        </div>
                     </article>
 
-                    <article class="card-destino">
+                    <article class="card-destino" data-destino="mendanha">
                         <h3>Mendanha</h3>
                         <p>
                             Trilhas, cachoeiras e muita natureza.
                         </p>
-                        <span>Natureza</span>
+                        <div class="dados-trilha">
+                            <div class="linha-dificuldade">
+                                <span class="rotulo-dificuldade">Dificuldade</span>
+                                <span class="indicador-dificuldade nivel-2" aria-label="Moderada"><i></i><i></i><i></i><i></i></span>
+                                <span class="texto-nivel">Moderada</span>
+                            </div>
+                            <div class="linha-percurso">
+                                <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 2h</span>
+                                <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 4 km</span>
+                            </div>
+                        </div>
                     </article>
 
-                    <article class="card-destino">
+                    <article class="card-destino" data-destino="praias-selvagens">
                         <h3>Praias selvagens</h3>
                         <p>
                             Praias preservadas, ideais para
                             quem busca tranquilidade.
                         </p>
-                        <span>Aventura</span>
+                        <div class="dados-trilha">
+                            <div class="linha-dificuldade">
+                                <span class="rotulo-dificuldade">Dificuldade</span>
+                                <span class="indicador-dificuldade nivel-2" aria-label="Moderada"><i></i><i></i><i></i><i></i></span>
+                                <span class="texto-nivel">Moderada</span>
+                            </div>
+                            <div class="linha-percurso">
+                                <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 1h30</span>
+                                <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 3 km</span>
+                            </div>
+                        </div>
                     </article>
 
                 </div>
@@ -213,65 +247,135 @@
 
         <div class="grid-destinos">
 
-            <article class="card-outro">
+            <article class="card-outro" data-destino="pedra-do-telegrafo">
                 <h3>Pedra do Telégrafo</h3>
                 <p>
                     Uma das vistas mais famosas
                     do Rio de Janeiro.
                 </p>
-                <span>Trilha</span>
+                <div class="dados-trilha">
+                    <div class="linha-dificuldade">
+                        <span class="rotulo-dificuldade">Dificuldade</span>
+                        <span class="indicador-dificuldade nivel-1" aria-label="Fácil"><i></i><i></i><i></i><i></i></span>
+                        <span class="texto-nivel">Fácil</span>
+                    </div>
+                    <div class="linha-percurso">
+                        <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 1h30</span>
+                        <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 3 km</span>
+                    </div>
+                </div>
             </article>
 
-            <article class="card-outro">
+            <article class="card-outro" data-destino="pedra-da-tartaruga">
                 <h3>Pedra da Tartaruga</h3>
                 <p>
                     Formações rochosas e paisagens incríveis.
                 </p>
-                <span>Trilha</span>
+                <div class="dados-trilha">
+                    <div class="linha-dificuldade">
+                        <span class="rotulo-dificuldade">Dificuldade</span>
+                        <span class="indicador-dificuldade nivel-2" aria-label="Moderada"><i></i><i></i><i></i><i></i></span>
+                        <span class="texto-nivel">Moderada</span>
+                    </div>
+                    <div class="linha-percurso">
+                        <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 1h40</span>
+                        <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 3 km</span>
+                    </div>
+                </div>
             </article>
 
-            <article class="card-outro">
+            <article class="card-outro" data-destino="pico-da-pedra-branca">
                 <h3>Pico da Pedra Branca</h3>
                 <p>
                     Uma aventura para quem busca
                     grandes desafios.
                 </p>
-                <span>Montanha</span>
+                <div class="dados-trilha">
+                    <div class="linha-dificuldade">
+                        <span class="rotulo-dificuldade">Dificuldade</span>
+                        <span class="indicador-dificuldade nivel-4" aria-label="Muito difícil"><i></i><i></i><i></i><i></i></span>
+                        <span class="texto-nivel">Muito difícil</span>
+                    </div>
+                    <div class="linha-percurso">
+                        <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 5h</span>
+                        <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 9 km</span>
+                    </div>
+                </div>
             </article>
 
-            <article class="card-outro">
+            <article class="card-outro" data-destino="pedra-do-quilombo">
                 <h3>Pedra do Quilombo</h3>
                 <p>
                     Natureza, aventura e belas paisagens.
                 </p>
-                <span>Trilha</span>
+                <div class="dados-trilha">
+                    <div class="linha-dificuldade">
+                        <span class="rotulo-dificuldade">Dificuldade</span>
+                        <span class="indicador-dificuldade nivel-3" aria-label="Difícil"><i></i><i></i><i></i><i></i></span>
+                        <span class="texto-nivel">Difícil</span>
+                    </div>
+                    <div class="linha-percurso">
+                        <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 3h30</span>
+                        <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 6 km</span>
+                    </div>
+                </div>
             </article>
 
-            <article class="card-outro">
+            <article class="card-outro" data-destino="pedra-do-osso">
                 <h3>Pedra do Osso</h3>
                 <p>
                     Uma experiência para os
                     amantes da natureza.
                 </p>
-                <span>Aventura</span>
+                <div class="dados-trilha">
+                    <div class="linha-dificuldade">
+                        <span class="rotulo-dificuldade">Dificuldade</span>
+                        <span class="indicador-dificuldade nivel-3" aria-label="Difícil"><i></i><i></i><i></i><i></i></span>
+                        <span class="texto-nivel">Difícil</span>
+                    </div>
+                    <div class="linha-percurso">
+                        <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 2h30</span>
+                        <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 4,5 km</span>
+                    </div>
+                </div>
             </article>
 
-            <article class="card-outro">
+            <article class="card-outro" data-destino="praias-selvagens">
                 <h3>Trilha das Praias Selvagens</h3>
                 <p>
                     Explore praias preservadas
                     e paisagens naturais.
                 </p>
-                <span>Praias</span>
+                <div class="dados-trilha">
+                    <div class="linha-dificuldade">
+                        <span class="rotulo-dificuldade">Dificuldade</span>
+                        <span class="indicador-dificuldade nivel-2" aria-label="Moderada"><i></i><i></i><i></i><i></i></span>
+                        <span class="texto-nivel">Moderada</span>
+                    </div>
+                    <div class="linha-percurso">
+                        <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 1h30</span>
+                        <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 3 km</span>
+                    </div>
+                </div>
             </article>
 
-            <article class="card-outro">
+            <article class="card-outro" data-destino="mendanha">
                 <h3>Cachoeira do Mendanha</h3>
                 <p>
                     Águas refrescantes em meio
                     à Mata Atlântica.
                 </p>
-                <span>Cachoeira</span>
+                <div class="dados-trilha">
+                    <div class="linha-dificuldade">
+                        <span class="rotulo-dificuldade">Dificuldade</span>
+                        <span class="indicador-dificuldade nivel-2" aria-label="Moderada"><i></i><i></i><i></i><i></i></span>
+                        <span class="texto-nivel">Moderada</span>
+                    </div>
+                    <div class="linha-percurso">
+                        <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 2h</span>
+                        <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 4 km</span>
+                    </div>
+                </div>
             </article>
 
         </div>
@@ -388,8 +492,41 @@
 </main>
 
 
+<!-- JANELA DOS DESTINOS: só aparece ao clicar em um card ou marcador -->
+<div id="janela-destino" class="janela-destino-fundo" hidden>
+    <section class="janela-destino-caixa" role="dialog" aria-modal="true" aria-labelledby="janela-destino-titulo">
+        <button type="button" id="janela-destino-fechar" aria-label="Fechar janela">&times;</button>
+        <h2 id="janela-destino-titulo"></h2>
 
-        
+        <!-- CARROSSEL: as imagens são definidas separadamente para cada destino no JS -->
+        <div class="janela-destino-carrossel" aria-label="Fotos do destino">
+            <div id="janela-destino-faixa" class="janela-destino-faixa"></div>
+            <button type="button" id="janela-destino-anterior" class="janela-destino-seta anterior" aria-label="Imagem anterior">&#10094;</button>
+            <button type="button" id="janela-destino-proximo" class="janela-destino-seta proximo" aria-label="Próxima imagem">&#10095;</button>
+            <span id="janela-destino-contador" class="janela-destino-contador"></span>
+        </div>
+
+        <div class="janela-destino-informacoes">
+            <div>
+                <strong>Dificuldade da trilha</strong>
+                <span id="janela-destino-dificuldade"></span>
+            </div>
+            <div>
+                <strong>Duração da trilha</strong>
+                <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: <b id="janela-destino-tempo"></b></span>
+                <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: <b id="janela-destino-distancia"></b></span>
+            </div>
+        </div>
+
+        <!-- MAPA DO DESTINO SELECIONADO -->
+        <div id="mapa-janela-destino" aria-label="Mapa do destino"></div>
+
+        <div class="janela-destino-acoes">
+            <a href="orçamento.html" class="janela-destino-botao-orcamento">Solicitar orçamento</a>
+        </div>
+    </section>
+</div>
+
         <footer style="color: white;">
             <p><h2>Nossos Canais de atendimento</h2>              
             <p id="femail"><i class="fa-regular fa-envelope"></i> contatosexplorazo@gmail.com</p>
@@ -397,5 +534,7 @@
             <p><i class="fa-solid fa-location-dot"></i> Rua francisco de campos, 354, Campo Grande.</p><hr>
             <p>&copy; 2026 ExploraZO. Todos os direitos reservados.</p>
         </footer>
+        <script src="JS/mapaindex.js"></script>
+        <script src="JS/janela-destinos.js"></script>
     </body>
 </html>
