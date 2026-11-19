@@ -1,4 +1,4 @@
-<!--Parte do vinicius--> 
+<!-- Parte do Vinicius -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,17 +8,15 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/trilhas.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
     <script src="JS/tema.js"></script>
     <script src="JS/topo.js" defer></script>
     <script src="JS/autenticacao.js"></script>
-
     <script>
-     if (!window.ExploraZOAuth.estaLogado()) {
-        window.ExploraZOAuth.definirDestino("orçamento.html");
-        window.location.href = "login.html";
-    }
+        if (!window.ExploraZOAuth.estaLogado()) {
+            window.ExploraZOAuth.definirDestino("orçamento.html");
+            window.location.href = "login.html";
+        }
     </script>
 </head>
 <body>
@@ -40,54 +38,7 @@
         <section id="destinos">
             <h2>Destinos em Destaque na Zona Oeste</h2>
             <p class="introducao">Descubra lugares incríveis para sua próxima aventura.</p>
-
-            <div class="lista-destinos">
-                <article class="card-destino" data-destino="pedra-do-telegrafo">
-                    <h3>Pedra do Telégrafo</h3>
-                    <p>Vista icônica e um dos cartões-postais da Zona Oeste.</p>
-                    <div class="dados-trilha">
-                        <div class="linha-dificuldade">
-                            <span class="rotulo-dificuldade">Dificuldade</span>
-                            <span class="indicador-dificuldade nivel-1" aria-label="Fácil"><i></i><i></i><i></i><i></i></span>
-                            <span class="texto-nivel">Fácil</span>
-                        </div>
-                        <div class="linha-percurso">
-                            <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 1h30</span>
-                            <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 3 km</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="card-destino" data-destino="mendanha">
-                    <h3>Mendanha</h3>
-                    <p>Trilhas, cachoeiras e muita natureza.</p>
-                    <div class="dados-trilha">
-                        <div class="linha-dificuldade">
-                            <span class="rotulo-dificuldade">Dificuldade</span>
-                            <span class="indicador-dificuldade nivel-2" aria-label="Moderada"><i></i><i></i><i></i><i></i></span>
-                            <span class="texto-nivel">Moderada</span>
-                        </div>
-                        <div class="linha-percurso">
-                            <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 2h</span>
-                            <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 4 km</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="card-destino" data-destino="praias-selvagens">
-                    <h3>Praias selvagens</h3>
-                    <p>Praias preservadas, ideais para quem busca tranquilidade.</p>
-                    <div class="dados-trilha">
-                        <div class="linha-dificuldade">
-                            <span class="rotulo-dificuldade">Dificuldade</span>
-                            <span class="indicador-dificuldade nivel-2" aria-label="Moderada"><i></i><i></i><i></i><i></i></span>
-                            <span class="texto-nivel">Moderada</span>
-                        </div>
-                        <div class="linha-percurso">
-                            <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Tempo: 1h30</span>
-                            <span><i class="fa-solid fa-route" aria-hidden="true"></i> Distância: 3 km</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
+            <div class="lista-destinos"></div>
         </section>
 
         <section id="experiencias">
@@ -129,7 +80,7 @@
             <h2>Monte seu pacote</h2>
             <p class="introducao">Conte como você quer viver essa experiência.</p>
 
-            <form id="form-orcamento">
+            <form id="form-orcamento" novalidate>
                 <div class="campo">
                     <label for="nome">Nome:</label>
                     <input class="inputcampo" type="text" name="nomeusuario" id="nome" placeholder="Digite seu nome" required>
@@ -144,21 +95,9 @@
                     <label for="destino">Destino desejado:</label>
                     <select id="destino" name="destino" class="inputcampo" required>
                         <option value="" selected disabled>Escolha um destino</option>
-                        <option>Pedra do Telégrafo</option>
-                        <option>Parque Estadual da Pedra Branca</option>
-                        <option>Cachoeira do Mendanha</option>
-                        <option>Mirante do Caeté</option>
-                        <option>Pedra da Tartaruga</option>
-                        <option>Açude do Camorim</option>
-                        <option>Praia do Perigoso</option>
-                        <option>Pico da Pedra Branca</option>
-                        <option>Pedra do Pontal</option>
-                        <option>Pedra do Quilombo</option>
-                        <option>Pedra do Ponto</option>
                     </select>
                 </div>
 
-                <!-- CAMPO DE DATA ADICIONADO -->
                 <div class="campo">
                     <label for="data">Data desejada:</label>
                     <input class="inputcampo" type="date" id="data" name="data" required>
@@ -206,7 +145,7 @@
         </section>
     </main>
 
-    <footer style="color: white;">
+    <footer>
         <h2>Nossos Canais de atendimento</h2>
         <p id="femail"><i class="fa-regular fa-envelope"></i> contatosexplorazo@gmail.com</p>
         <p id="ftelefone"><i class="fa-solid fa-phone"></i> (21) 93454-2234</p>
@@ -216,6 +155,6 @@
     </footer>
 
     <script src="JS/orcamento.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="JS/menu-usuario.js"></script>
 </body>
 </html>
